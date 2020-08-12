@@ -46,6 +46,27 @@ router.get('/user/:id', (req, res) => {
 	// connection.release()
 })
 
+router.post('/table_create', (req, res) => {
+	console.log("Trying to create a new table...")
+		
+	const tableName = req.body.create_table
+
+	const queryString = "CREATE TABLE `"+tableName+"` (`id` INT NOT NULL AUTO_INCREMENT,`first_name` VARCHAR(100),`last_name` VARCHAR(100), CONSTRAINT PK PRIMARY KEY (`id`));"
+	getConnection().query(queryString, (err, results, fields) => {
+		if (err) {
+			console.log("Failed to create a new table: " + err)
+			res.sendStatus(500)
+			return
+		}
+
+		// console.log("Inserted a new user with id: ", results.insertId)
+		// res.send("A new table is added!")
+		res.end()
+	})
+
+	res.end()
+})
+
 router.post('/user_create', (req, res) => {
 	console.log("Trying to create a new user...")
 		
