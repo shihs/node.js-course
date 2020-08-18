@@ -11,10 +11,23 @@ const requestHandler = (req, res) => {
 		res.write('<html>');
 		res.write('<head><title>Assignment 1</title></head>');
 		res.write('<body><div><h1>Hello from the other side</h1>');
-		res.write('<hr/>')
-		res.write('<form action="/create-user", method="POST"><input type="text" name="username" placeholder="User name"><button type="submit">Submit</button></form></div></body>')
+		res.write('<hr/>');
+		res.write('<form action="/create-user", method="POST"><input type="text" name="username" placeholder="User name"><button type="submit">Submit</button></form></div></body>');
 		res.write('</html>');
 		return res.end();
+	}
+
+	if (url === "/users") {
+		res.write('<html>');
+		res.write('<head><title>Assignment 1</title></head>');
+		res.write('<body>');
+		res.write('<ul><li>User 1</li></ul>');
+		res.write('<ul><li>User 2</li></ul>');
+		res.write('<ul><li>User 3</li></ul>');
+		res.write('</body>');
+		res.write('</html>');
+		return res.end();
+
 	}
 
 	if (url === '/create-user' && method === 'POST') {
