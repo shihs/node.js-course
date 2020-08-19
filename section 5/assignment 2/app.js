@@ -3,10 +3,16 @@ const express = require('express');
 const app = express();
 
 
-// app.use('/', (req, res, next) => {
+// app.use((req, res, next) => {
 // 	console.log('In first middleware!');
 // 	res.send("He Ha!");
 // 	next();
+// });
+
+
+// app.use((req, res, next) => {
+// 	console.log('In another middleware!');
+// 	res.send("Haaaaa Ha!");
 // });
 
 
